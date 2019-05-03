@@ -27,9 +27,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/css/styles.scss",
+              "node_modules/chart.js/dist/Chart.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

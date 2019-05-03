@@ -1,0 +1,133 @@
+<div class="d-tableHead" [ngClass]="{'show':showTable}">
+    <table>
+    <tr [ngClass]="{'show':showTable}">
+        <td>
+            {{tableContent.client_id}}
+        </td>
+        <td>
+            {{tableContent.client_name}}
+        </td>
+        <td>
+            {{tableContent.invoice_no}}
+        </td>
+        <td>
+            Rs. {{tableContent.invoice_amount}} L
+        </td>
+        <td>
+            {{tableContent.invoice_date}}
+        </td>
+        <td>
+            <a href="javascript:void(0)" class="d-button" (click)="showTable = !showTable">
+                    <span *ngIf="!showTable; else showDone">{{tableButton}}</span>
+                    <ng-template #showDone>Done</ng-template>
+            </a>
+        </td>
+    </tr>
+    </table>
+</div>
+<table class="d-info" *ngIf="showTable" [ngClass]="{'d-loader':loader}">
+  <tr>
+      <td>
+          <div class="d-info__block">
+              <div class="d-input__wrapper">
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          Payment Amount :
+                      </div>
+                      <div class="d-input__block">
+                          <div class="d-input__select">
+                              <span>{{payAmountSelected}}</span>
+                              <select [(ngModel)]="payAmountSelected">
+                                  <option [value]="amount" *ngFor="let amount of payAmount">{{amount}}</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          Adjustment Amount :
+                      </div>
+                      <div class="d-input__block">
+                          <input type="number"  [(ngModel)]="tableContent.adjusted_amount">
+                      </div>
+                  </div>
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          TDS :
+                      </div>
+                      <div class="d-input__block">
+                            <input type="number"  [(ngModel)]="tableContent.tds">
+                      </div>
+                  </div>
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          UTR NUmber :
+                      </div>
+                      <div class="d-input__block">
+                            <input type="text" [(ngModel)]="tableContent.utr_number">
+                      </div>
+                  </div>
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          Payment Date :
+                      </div>
+                      <div class="d-input__block">
+                            <input type="text" [(ngModel)]="tableContent.payment_date">
+                      </div>
+                  </div>
+                  <div class="d-input" [ngClass]="{'disabled':status}">
+                      <div class="d-input__text">
+                          Payment Time :
+                      </div>
+                      <div class="d-input__block">
+                        <input type="text" [(ngModel)]="tableContent.payment_time" [disabled]="status">
+                      </div>
+                  </div>
+                  <div class="d-input">
+                      <div class="d-input__text">
+                          Mode Of Payment :
+                      </div>
+                      <div class="d-input__block">
+                          <div class="d-input__select">
+                              <span>{{modeOfPaymentSelected}}</span>
+                              <select [(ngModel)]="modeOfPaymentSelected">
+                                  <option [value]="mode" *ngFor="let mode of modeOfPayment">{{mode}}</option>
+                              </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="d-input" [ngClass]="{'disabled':status}">
+                      <div class="d-input__text">
+                          Balance :
+                      </div>
+                      <div class="d-input__block">
+                            <input type="number" [(ngModel)]="tableContent.balance"  [disabled]="status">
+                      </div>
+                  </div>
+                  <div class="d-input" [ngClass]="{'disabled':status}">
+                      <div class="d-input__text">
+                          Total Amount :
+                      </div>
+                      <div class="d-input__block">
+                            <input type="number" [(ngModel)]="tableContent.total_amount"  [disabled]="status">
+                      </div>
+                  </div>
+              </div>
+              <div class="d-input__button">
+                  <button class="d-button" (click)="process()">
+                      <span *ngIf="!loader else showSpinner">{{btnText}}</span>
+                        <ng-template #showSpinner>
+                            <div class="spinner" [ngClass]="{'show':loader}">
+                                <div class="rect1"></div>
+                                <div class="rect2"></div>
+                                <div class="rect3"></div>
+                                <div class="rect4"></div>
+                                <div class="rect5"></div>
+                            </div>
+                        </ng-template>
+                  </button>
+              </div>
+          </div>
+      </td>
+  </tr>
+</table>

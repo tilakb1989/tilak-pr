@@ -1,0 +1,80 @@
+.icon 
+{
+    position: relative;
+    &::before 
+    {
+        content: "";
+        position: absolute;
+
+    }
+}
+
+$nav-icons : "dashboard","input","invoice","collections","release";
+
+@each $nav in $nav-icons{
+    .icon-#{$nav}
+    {
+        &:before 
+        {
+            background: url("../assets/icon-"+$nav+".svg") no-repeat;
+        }
+        &.active,&:hover
+        {
+            &:before 
+            {
+                background: url("../assets/icon-"+$nav+"-white.svg") no-repeat;
+            }
+        }
+    }
+}
+
+
+
+$assets-icons : ("calendar",#f5f7fc),
+                ("recieved",#f3f1ff),
+                ("outstanding",#fff8e4),
+                ("clients",#ebf9ea),
+                ("lockedclients",#f7e7e1),
+                ("associates",#e1eaf7);
+
+@each $nav-icon,$nav-color in $assets-icons {      
+    .icon-#{$nav-icon} 
+    {
+        background: #{$nav-color};
+        &:before
+        {
+            background: url("../assets/icon-"+$nav-icon+".svg") no-repeat center;
+        }
+        
+    }
+}         
+
+
+$table-color :  ("color1",#1f83ec),
+                ("color2",#21c67d),
+                ("color3",#ffb528),
+                ("color4",#5b3cf1),
+                ("color5",#7240ff),
+                ("color6",#ffea4b),
+                ("color7",#f436a4);
+
+@each $class,$color in $table-color
+{
+    .#{$class}
+    {
+        background: #{$color};
+    }
+}
+
+.icon-success
+{
+    width:22px;
+    height: 22px;
+    background: url(../assets/icon-success.svg) no-repeat center;
+}
+.icon-close
+{
+    width:20px;
+    height: 20px;
+    background: url(../assets/icon-close.svg) no-repeat center;
+}

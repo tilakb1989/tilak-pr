@@ -1,0 +1,56 @@
+.d-login
+{
+    width:400px;
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    border:solid thin #cccccc;
+    padding: 30px;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    h2 
+    {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+}
+
+.d-form 
+{
+    margin-top: 30px;
+    &group 
+    {
+        margin-bottom: 20px;
+        input
+        {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            border:solid thin #cccccc;
+            border-radius: 3px;
+            display: block;
+            width:100%;
+            box-sizing: border-box;
+        }
+        &.d-formbutton 
+        {
+            text-align: right;
+        }
+        button 
+        {
+            width:150px;
+            height: 40px;
+            background: #353f84;
+            border:solid thin transparent;
+            color:#ffffff;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            &:hover 
+            {
+                background:darken(#353f84,10%);
+            }
+        }
+    }
+}

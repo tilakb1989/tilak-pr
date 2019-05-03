@@ -1,0 +1,224 @@
+
+<div class="d-collections">
+  <div class="d-heading d-marginTop d-marginBottom">
+     <h1> Collections</h1>
+     <div class="d-cycle">
+       <span>PDC Cycle</span>
+       <div class="d-cycle__select">
+          <span>
+            February
+          </span>
+          <select name="" id="">
+            <option value="">--Select---</option>
+            <option value="">January</option>
+            <option value="">February</option>
+            <option value="">March</option>
+          </select>
+       </div>
+     </div>
+  </div>
+  <div class="d-assets d-marginBottom">
+      <div class="d-assets__section">
+        <div class="d-assets__block">
+          <span class="icon icon-calendar"></span>
+          <div class="d-assets__details">
+            <h3>2.00 Cr</h3>
+            <p>
+              Total Collection for PDC
+            </p>
+          </div>
+        </div>
+        <div class="d-assets__block">
+            <span class="icon icon-recieved"></span>
+            <div class="d-assets__details">
+              <h3>2.00 Cr</h3>
+              <p>
+                Recieved
+              </p>
+            </div>
+        </div>
+        <div class="d-assets__block">
+            <span class="icon icon-outstanding"></span>
+            <div class="d-assets__details">
+              <h3>200</h3>
+              <p>
+                Outstanding
+              </p>
+            </div>
+        </div>
+      </div>
+      <div class="d-assets__section">
+          <div class="d-assets__block">
+            <span class="icon icon-clients"></span>
+            <div class="d-assets__details">
+              <h3>2.00 Cr</h3>
+              <p>
+                Total Clients
+              </p>
+            </div>
+          </div>
+          <div class="d-assets__block">
+              <span class="icon icon-lockedclients"></span>
+              <div class="d-assets__details">
+                <h3>300</h3>
+                <p>
+                  Locked Clients
+                </p>
+              </div>
+          </div>
+          <div class="d-assets__block">
+              <span class="icon icon-associates"></span>
+              <div class="d-assets__details">
+                <h3>500</h3>
+                <p>
+                  Total Associates
+                </p>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="d-chart d-marginBottom">
+    <div class="d-chart__section">
+      <h2 class="d-chart__heading">
+          Invoices
+      </h2>
+      <div class="d-chart__block">
+        <div class="d-chart__content">
+          <table>
+            <tr>
+              <th>
+                Total Invoices
+              </th>
+              <th>
+                500
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <span class="color color1"></span> Invoice Not Tagged
+              </td>
+              <td>
+                150
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  <span class="color color2"></span> Salary Processed
+                </td>
+                <td>
+                  100
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <span class="color color3"></span> Salary to be Processed
+                </td>
+                <td>
+                  50
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <span class="color color4"></span> Finance Exceptions
+                </td>
+                <td>
+                  50
+                </td>
+            </tr>
+          </table>
+        </div>
+        <div class="d-chart__graph">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [legend]="false"
+              [options]="doughnutChartOptions"
+              [colors]="donutColors"
+              >
+            </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="d-chart__section">
+        <h2 class="d-chart__heading">
+            Exceptions
+        </h2>
+        <div class="d-chart__block">
+          <div class="d-chart__content">
+            <table>
+              <tr>
+                <th>
+                  Total Exceptions
+                </th>
+                <th>
+                  500
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <span class="color color5"></span> Invoice Not Tagged
+                </td>
+                <td>
+                  150
+                </td>
+              </tr>
+              <tr>
+                  <td>
+                    <span class="color color6"></span> Salary Processed
+                  </td>
+                  <td>
+                    100
+                  </td>
+              </tr>
+              <tr>
+                  <td>
+                    <span class="color color7"></span> Salary to be Processed
+                  </td>
+                  <td>
+                    50
+                  </td>
+              </tr>
+            </table>
+          </div>
+          <div class="d-chart__graph">
+            <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [chartType]="doughnutChartType"
+              [legend]="false"
+              [options]="doughnutChartOptions"
+              [colors]="donutColors"
+              >
+            </canvas>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="d-tabs">
+    <div class="d-tabs__list d-marginBottom">
+      <ul>
+        <li>
+            <a routerLink="/home/collections/untagged" routerLinkActive="active" class="">Untagged Invoices (150)</a>
+        </li>
+        <li>
+            <a routerLink="/home/collections/mostprobablematch" routerLinkActive="active">Most Probable Match (50)</a>
+        </li>
+        <li>
+            <a routerLink="/home/collections/financialexceptions" routerLinkActive="active">Financial Exceptions (50)</a>
+        </li>
+        <li>
+          <a routerLink="/home/collections/salaryrelease" routerLinkActive="active">Salary to be Released (50)</a>
+        </li>
+        <li>
+          <a routerLink="/home/collections/salaryprocess" routerLinkActive="active">Salary Processed (100)</a>
+        </li>
+      </ul>
+      <div class="d-search">
+        <input type="text" placeholder="Enter Client ID or Invoice Number">
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+    
+  </div>
+</div>

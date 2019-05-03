@@ -1,0 +1,35 @@
+<div class="d-tabs__content d-marginBottom">
+        <div class="d-tabs__contenttable">
+            <table>
+                <tr>
+                    <th *ngFor="let head of tableHeaders" [ngSwitch]="head" [ngClass]="head == 'Status'? 'status-width': ''">
+                        <!-- <span *ngIf="head != 'Invoice Number' else in">{{head}}</span>
+                        <ng-template #in>Invoice <br> No</ng-template> -->
+                        <span *ngSwitchCase="'Invoice Number'">Invoice <br> Number</span>
+                        <span *ngSwitchCase="'Invoice Amount'">Invoice <br> Amount</span>
+                        <span *ngSwitchDefault>{{head}}</span>
+                    </th>
+                </tr>
+                <tr *ngFor="let head of tableContent | paginate: { itemsPerPage: 10, currentPage: p }">
+                    <td colspan="8">
+                        <app-srdetails
+                            [tableContent]="head" 
+                            [tableButton]="tableButton" 
+                            [userStatus]="userStatus"   
+                        >
+                        </app-srdetails>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="d-pagination d-marginTop">
+            <div class="d-spacer"></div>
+            <pagination-controls class="d-pagination__block"
+                (pageChange)="p = $event"
+                responsive="true"
+                previousLabel=""
+                nextLabel=""
+            >
+            </pagination-controls>
+        </div>
+   </div>

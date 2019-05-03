@@ -1,0 +1,33 @@
+<div class="d-tabs__content d-marginBottom">
+    <div class="d-tabs__contenttable">
+        <table>
+            <tr>
+                <th *ngFor="let head of tableHeaders">
+                    {{head}}
+                </th>
+            </tr>
+            <tr *ngFor="let head of tableContent | paginate: { itemsPerPage: 10, currentPage: p }">
+                <td colspan="6">
+                    <app-untagged-details 
+                        [tableContent]="head" 
+                        [tableButton]="tableButton" 
+                        [userStatus]="userStatus"
+                        (invoiceNo)='getInvoiceNo($event)'     
+                        >
+                    </app-untagged-details>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="d-pagination d-marginTop">
+        <div class="d-spacer"></div>
+        <pagination-controls class="d-pagination__block"
+            (pageChange)="p = $event"
+            responsive="true"
+            previousLabel=""
+            nextLabel=""
+        >
+        </pagination-controls>
+    </div>
+    <app-popup-modal [data]="modal" (restartModal)="resModal($event)" *ngIf="show"></app-popup-modal>
+</div>

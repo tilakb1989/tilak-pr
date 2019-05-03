@@ -1,0 +1,8 @@
+<header *ngIf="!isUserLoggedIn">
+  <div class="d-header">
+    <div class="d-spacer"></div>
+    <a (click)="logout()" class="d-header__menu" title="logout">
+      <span>{{exactName}}</span>
+    </a>
+  </div>
+</header>

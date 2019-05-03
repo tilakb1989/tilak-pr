@@ -1,0 +1,14 @@
+<div class="d-nav" *ngIf="!isUserLoggedIn">
+    {{loggedIn}}
+    <div class="d-navlogo">
+      <a href="#">
+      </a>
+    </div>
+    <ul>
+      <li><a routerLink="/home/dashboard"  routerLinkActive="active" class="icon icon-dashboard">Dashboard</a></li>
+      <li><a routerLink="/home/inputs" routerLinkActive="active" class="icon icon-input">Inputs</a></li>
+      <li><a routerLink="/home/invoice" routerLinkActive="active" class="icon icon-invoice">Invoice</a></li>
+      <li><a routerLink="/home/collections" routerLinkActive="active"  class="icon icon-collections">Collections</a></li>
+      <li><a routerLink="/home/release" routerLinkActive="active"  class="icon icon-release">Release</a></li>
+    </ul>
+</div>
